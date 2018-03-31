@@ -26,5 +26,5 @@ An *Intent* is where you'll spend most of your time configuring what Alexa will 
 
 e.g. "I'd like to know about *fish*", "Tell me about *snails*", "What's the thing with *dogs*". All of these utterances, if tied to the same **Intent**, would end up being processed by the same handler in Lambda, with only the data that gets passed to Lambda changing ('fish', or 'snails', or 'dogs').
 
-For now, we are starting simple to illustrate the movigin parts: A simple invocation with a hard-coded response.
+For now, we are starting simple to illustrate the moving parts: A simple invocation with a hard-coded response.
 
