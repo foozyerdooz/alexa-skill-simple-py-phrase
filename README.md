@@ -1,12 +1,13 @@
 # alexa-skill-simple-py-phrase
+
 This project aims to contain everything required to implement a simple Amazon Alexa skill
 using Alexa Skills Developer Kit to generate the interaction model and an AWS python Lambda function to implement the endpoint logic.
 
 *NOTE: You do not need to own an Echo Dot device, or equivalent, to develop for Alexa: AWS supplies a web based Alexa simulator that you can use to test your solution on.*
 
 ## Getting started for the completely uninitiated
-For anyone starting off, you will need an Alexa Skills kit Developer account https://developer.amazon.com/alexa 
 
+For anyone starting off, you will need an Alexa Skills kit Developer account https://developer.amazon.com/alexa 
 *(ProTip: use the same email address for your alexa developer account as you used for registering your Echo dot device)*
 
 You will also need a standard AWS account https://console.aws.amazon.com to be able to create the Lambda function that your Alexa skill uses for a brain...
@@ -16,7 +17,8 @@ These are seperate accounts - not linked. Later in the process, you will simply 
 The final puzzle piece is to use your newly developed skill with your Amazon Echo Dot, or equivalent - that magic is done from your phone that controls your Dot. Within the Skills section of the app, there is a 'Developer' section. You should find all of your skills that you are working on (from your Alexa skills developer account) listed here.
 
 ## Alexa Skills, Invocations, Intents and Slots
-Go ahead - Open up the Alexa Skills developer kit.
+
+Go ahead - Open up the Alexa Skills developer kit. 
 
 An Alexa **Skill** is the container for your application. Within it you configure Alexa to start your skill by configuring the **Invocation** name: 
 
@@ -27,4 +29,25 @@ An *Intent* is where you'll spend most of your time configuring what Alexa will 
 e.g. "I'd like to know about *fish*", "Tell me about *snails*", "What's the thing with *dogs*". All of these utterances, if tied to the same **Intent**, would end up being processed by the same handler in Lambda, with only the data that gets passed to Lambda changing ('fish', or 'snails', or 'dogs').
 
 For now, we are starting simple to illustrate the moving parts: A simple invocation with a hard-coded response.
+
+*Note: Everything done below results in the JSON model, included in the is project (**SimplePhrase.json**). You can manually configure the model using the console(below), 
+or just drag and drop a pre-baked JSON file model into the **JSON Editor** in the console.*
+
+### Console Instructions
+1. Create a new Skill - 'SimplePhrase'
+2. Choose **Custom** model, and click on the *Create Skill* button.
+3. Now you will find yourself in the Skills developer console. Click on **Invocation** on the left panel.
+4. Type *quote engine* in the Skill Invocation name. 
+5. Move on to the **Intents**. The 3 existing built-in intents are there so that Alexa can respond to Cancel, Help and Stop phrases. It isn't necessary to do anything with these built-in intents as this is a simple example. However, as you do more complex interaction logic with Alexa, giving users an exit path and help instructions is important.
+6. **Add** a new Intent. Select **Create custom intent**. Call it *GetRandomQuote*.
+7. Add a new **Sample Utterance** - *'Hit me with a quote'*. 
+8. Add another one *'quote me up'*
+9. Add a final one *'what's today's quote'*
+10. We are not using **slots** in this example, as there is no data or parameters to be passed into the Lambda function.
+11. **Save** the model.
+12. **Build** the model.
+13. Compare the JSON from the **JSON Editor** with the contens of the file in this project *SimplePhrase.json*. It should match if you have followed the instructions
+
+
+
 
