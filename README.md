@@ -35,7 +35,7 @@ For now, we are starting simple to illustrate the moving parts: A simple invocat
 *Note: Everything done below results in the JSON model, included in the is project (**SimplePhrase.json**). You can manually configure the model using the console(below), 
 or just drag and drop a pre-baked JSON file model into the **JSON Editor** in the console.*
 
-### Console Instructions
+### Alexa Skills Console Instructions
 1. Create a new Skill - 'SimplePhrase'
 2. Choose **Custom** model, and click on the *Create Skill* button.
 3. Now you will find yourself in the Skills developer console. Click on **Invocation** on the left panel.
@@ -53,6 +53,13 @@ or just drag and drop a pre-baked JSON file model into the **JSON Editor** in th
 ### Lambda Function
 
 The contents of the *GetRandomQuote.py* file need to be pasted into a new python AWS Lambda function in your AWS account.
-Use the AWS Cloud9 IDE,
+Use the AWS Lambda console.
+
+There is a specific order in which things should be done to link lambda to yout Alexa skill:
+
+1. Create your Lambda function un US-East-1 Region - that is one of the few regions that supports Alexa skills triggers
+2. Add an Alexa skills trigger to your Lambda function. Add your skill ID from the skill console to the lambda trigger on the AWS lambda console
+3. Add the Lambda function ARN to the Skill endpoint *Default Region* on the skills console
+4. Build your model again - and everything shouyld be good to be tested
 
 

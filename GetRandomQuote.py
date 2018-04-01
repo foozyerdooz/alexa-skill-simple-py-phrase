@@ -9,7 +9,7 @@ STATE_START = "Start"
 STATE = STATE_START
 
 # This is the welcome message for when a user starts the skill without a specific intent
-WELCOME_MESSAGE = "Welcome to the simple Quote Engine!  You can ask me for a random quote, by saying quote me up, or hit me with a quote, or whats todays quote?. What would you like to do?"
+WELCOME_MESSAGE = "Welcome to the simple Quote Engine!  You can ask me for a random quote, by saying quote me up, or, hit me with a quote, or, whats todays quote?. What would you like to do?"
 #This is the message a user will hear when they try to cancel or stop the skill"
 #or when they finish a quiz.
 EXIT_SKILL_MESSAGE = "Thank you for using Quote Engine!  Let's play again soon!"
@@ -30,6 +30,8 @@ def lambda_handler(event, context):
     if event['request']['type'] == "LaunchRequest":
         return on_launch()
     elif event['request']['type'] == "IntentRequest":
+        print (event)
+        print (context)
         return on_intent(event['request'], event['session'])
     elif event['request']['type'] == "SessionEndedRequest":
         return on_session_ended(event['request'])
@@ -42,9 +44,8 @@ def on_intent(request, session):
     intent = request['intent']
     intent_name = request['intent']['name']
 
-    #print("on_intent " +intent_name)
-    get_state(session)
-
+    print("on_intent " +intent_name)
+    
     if 'dialogState' in request:
         #delegate to Alexa until dialog sequence is complete
         if request['dialogState'] == "STARTED" or request['dialogState'] == "IN_PROGRESS":
@@ -52,6 +53,7 @@ def on_intent(request, session):
 
     # process the intents
     if intent_name == "GetRandomQuote":
+        print("Calling do_random_quote")
         return do_random_quote(request)
     elif intent_name == "AMAZON.HelpIntent":
         return do_help()
@@ -81,7 +83,7 @@ def on_launch():
         Response object -- SSML message to get spoken by Alexa
     """
     attributes="LAUNCH"
-    speech_message = SAYAS_INTERJECT + "g'day" + SAYAS + BREAKSTRONG + WELCOME_MESSAGE
+    speech_message = SAYAS_INTERJECT + "g'day." + SAYAS + BREAKSTRONG + WELCOME_MESSAGE
     return response( attributes,response_ssml_text(speech_message, False))
 
 def on_session_ended(request):
@@ -92,17 +94,6 @@ def on_session_ended(request):
         print("on_session_ended reason: " + end_reason)
     else:
         print("on_session_ended")
-
-def get_state(session):
-    """ get and set the current state  """
-
-    global STATE
-
-    if 'state' in session['attributes']:
-        STATE = session['attributes']['state']
-    else:
-        STATE = STATE_START
-
 
 #---------------------------- Random Quote --------------------------------
 #
