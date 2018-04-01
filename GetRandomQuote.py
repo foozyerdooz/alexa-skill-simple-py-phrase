@@ -9,9 +9,9 @@ STATE_START = "Start"
 STATE = STATE_START
 
 # This is the welcome message for when a user starts the skill without a specific intent
-WELCOME_MESSAGE = "Welcome to the simple Quote Engine!  You can ask me for a random quote, by saying quote me up, or, hit me with a quote, or, whats todays quote?. What would you like to do?"
+WELCOME_MESSAGE = "Welcome to the simple Quote Engine!  You can ask me for a random quote, by saying: quote me up, or, hit me with a quote, or, whats todays quote?. What would you like to do?"
+
 #This is the message a user will hear when they try to cancel or stop the skill"
-#or when they finish a quiz.
 EXIT_SKILL_MESSAGE = "Thank you for using Quote Engine!  Let's play again soon!"
 
 #This is the message a user will hear when they ask Alexa for help in your skill.
@@ -22,6 +22,19 @@ SAYAS_INTERJECT = "<say-as interpret-as='interjection'>"
 SAYAS_SPELLOUT = "<say-as interpret-as='spell-out'>"
 SAYAS = "</say-as>"
 BREAKSTRONG = "<break strength='strong'/>"
+
+# Quote List
+QUOTE = ([  "There is nothing permanent, except change: Heraclitus",
+            "Learning never exhausts the mind: Leonardo da Vinci",
+            "If you cannot do great things, do small things in a great way: Napoleon Hill",
+            "The journey of a thousand miles begins with one step: Lao Tzu",
+            "Honesty is the first chapter in the book of wisdom: Thomas Jefferson",
+            "I have not failed. I've just found 10000 ways that won't work: Thomas Edison",
+            "A leader is one who knows the way, goes the way and shows the way: John C. Maxwell",
+            "If opportunity doesn't knock, buld a door: Milton Berle",
+            "The secret of getting ahead is getting started: Mark Twain",
+            "Wise men speak because they have something to say; Fools because they have to say something: Plato"
+])
 
 # --------------- entry point -----------------
 
@@ -102,7 +115,7 @@ def on_session_ended(request):
 def do_random_quote(request):
     """ get a random quote and send it back to Alexa  """
     attributes="Quote"
-    speech_message="this is a test quote"
+    speech_message=random.choice(QUOTE)
     return response( attributes,response_plain_text(speech_message, False))
 
 # --------------- speech response handlers -----------------
