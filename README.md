@@ -5,6 +5,8 @@ using Alexa Skills Developer Kit to generate the interaction model and an AWS py
 
 *NOTE: You do not need to own an Echo Dot device, or equivalent, to develop for Alexa: AWS supplies a web based Alexa simulator that you can use to test your solution on.*
 
+An objective of this project was to create a clean boilerplate python function that can be a template for more complex interactions. 
+
 ## Getting started for the completely uninitiated
 
 For anyone starting off, you will need an Alexa Skills kit Developer account https://developer.amazon.com/alexa 
@@ -48,6 +50,9 @@ or just drag and drop a pre-baked JSON file model into the **JSON Editor** in th
 12. **Build** the model.
 13. Compare the JSON from the **JSON Editor** with the contens of the file in this project *SimplePhrase.json*. It should match if you have followed the instructions
 
+### Lambda Function
 
+The contents of the *GetRandomQuote.py* file need to be pasted into a new python AWS Lambda function in your AWS account.
+Use the AWS Cloud9 IDE,
 
 
