@@ -24,7 +24,7 @@ SAYAS = "</say-as>"
 BREAKSTRONG = "<break strength='strong'/>"
 
 # Quote List
-QUOTE = ([  "There is nothing permanent, except change: Heraclitus.",
+QUOTE = ([  "There is nothing permanent, except change: Heraclitus. only in test",
             "Learning never exhausts the mind: Leonardo da Vinci",
             "If you cannot do great things, do small things in a great way: Napoleon Hill",
             "The journey of a thousand miles begins with one step: Lao Tzu",

@@ -1,4 +1,4 @@
-# alexa-skill-simple-py-phrase
+# alexa-skill-simple-py-phrase only in test
 
 This project aims to contain everything required to implement a simple Amazon Alexa skill
 using Alexa Skills Developer Kit to generate the interaction model and an AWS python Lambda function to implement the endpoint logic.
